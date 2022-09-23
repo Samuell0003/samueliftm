@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="fragments/modelo :: modelo" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Demonstração de fragmentos</h1>
+
+    <div th:fragment="conteudo">
+        <div class="container-fluid">
+            <div class="row mr-1" style="height:100px">
+                <div class="col-md border">coluna 1</div>
+                <div class="col-md border">coluna 2</div>
+                <div class="col-md border">coluna 3</div>
+            </div>
+        </div>
+    </div>
+
+    <h1>conteúdo fora do fragmento</h1>
+
+</body>
+
+</html>
