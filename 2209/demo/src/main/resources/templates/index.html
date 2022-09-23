@@ -5,8 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
-    
+    <nav th:replace="fragmentos/frag1::navLink"></nav>
+    <main>
+        <div class="d-flex flex-row mb-3">
+            <div class="p-2"><img src="https://blog.portalpos.com.br/app/uploads/2021/08/cores.jpg" alt="" width="500px"></div>
+            <div class="p-2"><img src="https://www.institutoclaro.org.br/educacao/wp-content/uploads/sites/2/2018/09/Plano-de-aula-Pixels-destaque-1.jpg" alt="" width="500px"></div>
+        </div>
+    </main>
+    <footer th:replace="fragmentos/frag1::footer"></footer>
 </body>
 </html>

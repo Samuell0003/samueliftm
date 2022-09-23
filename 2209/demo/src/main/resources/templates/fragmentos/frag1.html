@@ -6,23 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Demonstração de fragmentos</h1>
+    <nav th:fragment="navLink"> 
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/view">View</a></li>
+        </ul>
+    </nav>
 
-    <div th:fragment="conteudo">
-        <div class="container-fluid">
-            <div class="row mr-1" style="height:100px">
-                <div class="col-md border">coluna 1</div>
-                <div class="col-md border">coluna 2</div>
-                <div class="col-md border">coluna 3</div>
-            </div>
-        </div>
-    </div>
-
-    <h1>conteúdo fora do fragmento</h1>
-
+    <footer class="d-flex p-2 fw-bolder justify-content-center" th:fragment="footer">Todos os direitos reservados.</footer>
 </body>
+
 
 </html>
