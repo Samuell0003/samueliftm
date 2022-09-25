@@ -4,15 +4,19 @@
  */
 package com.mycompany.exerciciosreplitarray;
 
-import static com.mycompany.exerciciosreplitarray.exe06.entrada;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author samuel.lucas
+ * 
+ * Faça um programa em java que leia N números inteiros e armazene-os em um ArrayList. Em seguida, 
+ * mostrar na tela todos os números negativos lidos, na ordem do último (posição N-1) ao primeiro (posição 0).
  */
 public class exe05 {
     public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
         int num = entrada.nextInt();
         ArrayList<Integer> numeros = new ArrayList();
         
