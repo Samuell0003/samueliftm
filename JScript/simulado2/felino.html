@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+        }
+        .flex {
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex > div {
+            width: 250px;
+            text-align: center;
+        }
+
+        input {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        input[type="button"] {
+            color: white;
+            background-color: red;
+        }
+
+        
+    </style>
+    <script>
+        function acao(num) {
+            if (num==1) {
+                vetNome=localStorage.getItem("nome").split(" ");
+                document.getElementById("txt1").innerHTML = "Oi, "+ vetNome[0]+", tudo bem com você?";
+            } else if (num==2) {
+                valor = document.getElementById("txt2").innerHTML;
+                valor++;
+                document.getElementById("txt2").innerHTML = valor++;
+            } else if (num==3) {
+                document.getElementById("img3").src = "Imagens/gato06.gif";
+            } else if (num==4) {
+                document.getElementById("txt4").innerHTML = "Ai, pare de fazer cócegas!";
+            } else if (num==5) {
+                document.getElementById("numAleat").value = Math.round(Math.random() * (100 - 1) + 1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="flex">
+        
+        <div>
+            <img onclick="acao(1)" src="Imagens/gato01.gif" alt="">
+            <p id="txt1">Clique em mim!</p>
+        </div>
+        <div>
+            <img onclick="acao(2)" src="Imagens/gato02.gif" alt="">
+            <p>Clique sobre mim varias vezes!</p>
+            <p>Carinhos: <span id="txt2">0</span></p>
+        </div>
+        <div>
+            <img onmousemove="acao(3)" onmouseout="document.getElementById('img3').src ='Imagens/gato03.gif'" id="img3" src="Imagens/gato03.gif" alt="">
+            <p>Passe o cursor do mouse sobre mim!</p>
+        </div>
+        <div>
+            <img onmousemove="acao(4)" onmouseout="document.getElementById('txt4').innerHTML ='lá lá lá lá lá'" src="Imagens/gato04.gif" alt="">
+            <p id="txt4">lá lá lá lá lá</p>
+        </div>
+        <div >
+            <img src="Imagens/gato05.gif" alt="">
+            <input onclick="acao(5)" type="button" value="Gerar numero da sorte">
+            <input id="numAleat" type="text">
+        </div>
+        
+    </div>
+</body>
+</html>

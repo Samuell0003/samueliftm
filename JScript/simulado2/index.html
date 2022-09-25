@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 600px;
+            margin: auto;
+            text-align: center;
+            
+        }
+        legend {
+            text-align: center;
+        }
+        fieldset {
+            border: 3px solid green;
+            color: green;
+            
+            
+        }
+        input[type="text"] {
+            border: 0;
+            border-bottom: 2px solid green;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+        input[type="button"] {
+            width: 200px;
+            display: block;
+            margin: auto;
+            padding: 10px;
+            border: 0;
+            background-color: green;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        alert("Olá, seja bem-vindo!");
+        
+        function pegarText() {
+            txtNome = document.getElementById("textNome").value;
+            if (txtNome=="" || txtNome.split(" ").length<=1) {
+                alert("Informe nome e sobrenome!");
+            } else {
+                localStorage.setItem("nome", txtNome);
+                window.open('menu.html', "_self");
+            }
+        }
+    </script>
+</head>
+<body>
+        <form action="">
+            <fieldset>
+                <legend>Acesso ao sistema</legend>
+                <label for="">Nome completo:</label>
+                <input type="text" id="textNome">
+                <input type="button" value="Entrar" onclick="pegarText()">
+            </fieldset>
+        </form>
+   
+</body>
+</html>

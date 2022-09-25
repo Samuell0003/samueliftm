@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        h1 {
+            display: block;
+            color: green;
+        }
+        input {
+            background-color: green;
+            color: white;
+            width: 400px;
+            padding: 10px;
+            border: 0;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function setnome() {
+            vetNome = localStorage.getItem("nome").split(" ");
+            document.getElementById("nome").innerHTML = vetNome[0]+" "+vetNome[vetNome.length-1]+", seja bem-vindo ao jogo dos Felinos!";
+        }
+    </script>
+</head>
+<body onload="setnome()">
+    <h1 id="nome"></h1>
+    <input type="button" value="Entrar como convidado" onclick="window.open('felino.html','_self')">
+</body>
+</html>
