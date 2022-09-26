@@ -1,0 +1,190 @@
+create database empresa;
+
+use empresa;
+
+create table Cargo (
+    cod_cargo int primary key,
+    nome varchar(90),
+    nivel varchar(10),
+    salario float
+);
+
+create table Departamento (
+    cod_depto int primary key,
+    nome varchar(90),
+    sigla varchar(10)
+);
+
+
+create table Funcionario (
+    cod_func int primary key,
+    nome varchar(90),
+    data_adm date,
+    sexo char(1),
+    cod_cargo int,
+    cod_depto int,
+    foreign key(cod_cargo) references cargo(cod_cargo),
+    foreign key(cod_depto) references departamento(cod_depto)
+);
+
+
+insert into cargo(cod_cargo, nome, nivel, salario) values (1, "Analista de Sistemas", "JR", 1500),(2,"Desenvolvedor","JR",2100),(3,"Desenvolvedor","Pleno", 3200),(4,"Atendente", "NA",980),(5,"Contador","NA", 4500);
+
+
+insert into departamento(cod_depto, nome, sigla) values 
+(1, "Informática", "INF"),
+(2,"Financeiro","FIN"),(3,"Pessoal","RH");
+
+
+insert into funcionario(cod_func, nome, data_adm, sexo, cod_cargo, cod_depto) values 
+(1, "João Nogueira", "2008/03/12", "M", 1, 1) , (2, "Maria Silveira", "2008/03/20", "F", 4, 3) , (3,"Marcos Silva", "2008/07/05", "M", 2, 1) , (4,"Gabriel Pereira", "2008/07/10", "M", 5, 2) , 
+(5, "Carla Junqueira", "2008/08/15", "F", 1, 1) , (6, "Janete Rosa", "2008/10/01", "F", 4, 3) , (7, "Fernando Silva", "2009/02/03", "M", 3, 1) , (8, "Marília Vieira", "2009/02/05", "F", 2, 1) , (9, "Patrícia Chaves", "2009/03/01", "F", 5, 2) , (10, "João Marques", "2008/03/15", "M", 3, 1);
+
+select cod_cargo, cod_depto, nome from Funcionario where year(data_adm)=2008;
+
+select nome from cargo where salario>=2000 and salario<=5000;
+
+select nome, salario from cargo where salario>3000;
+
+select * from funcionario where nome='Fernando Silva';
+
+select * from funcionario where right(nome,4)='eira';
+
+select * from funcionario where left(SUBSTRING_INDEX(SUBSTRING_INDEX(nome, ' ', 2),' ',-1),4)='Silv';
+
+select nome, data_adm from funcionario where left(nome,1)='P' or left(nome,1)='M';
+
+select * from funcionario where left(nome,1)!='J' and left(nome,1)!='G';
+
+select nome, sexo from funcionario where SUBSTRING_INDEX(SUBSTRING_INDEX(nome, ' ', 2),' ',-1)='Silva';
+
+select cod_depto, sigla from departamento where cod_depto not in(3);
+
+select cod_func, nome from funcionario where sexo not in('F') and cod_depto not in(1) and cod_depto not in(3);
+
+select cod_cargo, salario from cargo where nome not in ('Analista de Sistemas');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2)
+
+create database academico;
+
+use academico;
+
+create table Curso (
+    cod_curso int auto_increment,
+    nome varchar(50),
+    sigla varchar(10),
+    primary key(cod_curso)
+);
+
+create table Aluno (
+    mat int auto_increment,
+    nome varchar(50),
+    entrada char(6),
+    cod_curso int,
+    primary key(mat),
+    foreign key(cod_curso) references curso(cod_curso)
+);
+
+ALTER TABLE aluno AUTO_INCREMENT=1001;
+
+create table disciplina (
+    cod_disc int auto_increment,
+    nome varchar(50),
+    sigla varchar(10),
+    primary key(cod_disc),
+    carga_hor int
+);
+
+create table professor (
+    cod_prof int auto_increment,
+    primary key(cod_prof),
+    nome varchar(50)
+);
+
+create table turma (
+    cod_turma int,
+    ano year(4),
+    sem int,
+    primary key(cod_turma)
+);
+
+create table alocacao (
+    cod_turma int,
+    cod_disc int,
+    cod_prof int,
+    foreign key(cod_turma) references turma(cod_turma),
+    foreign key(cod_disc) references disciplina(cod_disc),
+    foreign key(cod_prof) references professor(cod_prof)
+);
+
+create table historico (
+    cod_turma int,
+    mat int,
+    cod_disc int,
+    media float,
+    foreign key(cod_turma) references turma(cod_turma),
+    foreign key(mat) references aluno(mat),
+    foreign key(cod_disc) references disciplina(cod_disc)
+);
+
+create table pre_req (
+    cod_disc int,
+    cod_disc_req int auto_increment,
+    primary key(cod_disc_req),
+    foreign key(cod_disc) references disciplina(cod_disc)
+);
+
+insert curso (nome, sigla) values ("Sistemas para Internet","TSPI") , ("Licenciaturaem
+Computação","LCOMP");
+
+insert aluno (nome, entrada, cod_curso) values
+	("PauloSilva","2016_1",1) ,
+	("Carla Marins","2016_2",1) ,
+	("Marcos Ferreira","2017_1",2);
+
+insert disciplina (nome,sigla, carga_hor) values 
+	("Lógica","Log", 105) , 
+	("Algoritmos","Alg", 80) , 
+	("Banco de Dados 1","BD1", 75) , 
+	("Programação Orientada a Objetos","POO", 20);
+    
+insert professor (nome) value ("Clarimundo") , ("Mateus"), ("Cibele");
+
+insert turma (cod_turma, ano, sem) values (44, "2016", 1), (46, "2016",  1), (47, "2016", 2), (48, "2017", 1);
+
+insert alocacao (cod_turma, cod_disc, cod_prof) values (44, 1, 1), (46, 3, 2), (46, 2, 1), (47, 3, 3), (48, 4, 1);
+
+insert historico (cod_turma, mat, cod_disc, media) value (44, 1001, 1, 6) , (46, 1001, 2, 5.5), (47, 1002, 3, 7);
+
+insert pre_req (cod_disc) value (2), (4);
+
+
+
+
+
+
+
+
