@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addImg(num) {
+            if (num==1) {
+                document.getElementById("img").src="img/amor.jpg";
+            } else if (num==2) {
+                document.getElementById("img").src="img/alegre.jpg";
+            } else if (num==3) {
+                document.getElementById("img").src="img/coco.jpg";
+            }
+        }
+
+        function cont() {
+            num = document.getElementById("num").value;
+            num++;
+            document.getElementById("num").value=num;
+        }
+
+    </script>
+    <style>
+        #img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <input type="button" value="Amor" onclick="addImg(1)">
+        <input type="button" value="Alegre" onclick="addImg(2)">
+        <input type="button" value="Coco" onclick="addImg(3)">
+        <input type="text" value="0" id="num" disabled>
+    </div>
+    <img src="img" alt="" id="img" onclick="cont()">
+</body>
+</html>
