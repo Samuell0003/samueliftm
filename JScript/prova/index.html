@@ -7,16 +7,17 @@
     <title>Document</title>
 
     <script>
-        nome = prompt("Informe seu nome:");
-        if (nome == "" || nome==null)  {
-            nome = "Visitante";
-        }
+        nome = prompt("Informe seu nome:") || "Visitante";
+        // if (nome == "" || nome==null)  {
+            //     nome = "Visitante";
+            // }
         alert(nome+", seja bem-vindo!");
 
         function inseri() {
             document.getElementById("user").value=nome;
         }
-
+            
+            
         function valida() {
             nome = document.getElementById("user").value;
             if (document.getElementById("user").value=="") {
@@ -41,7 +42,7 @@
         }
     </style>
 </head>
-<body onload="inseri()">
+<body onload="inseri()" onpageshow="inseri()">
     <form action="">
         <label for="user">Usuário:</label>
         <input class="ipt" type="text" id="user">
