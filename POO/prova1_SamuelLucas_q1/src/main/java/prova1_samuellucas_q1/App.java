@@ -37,7 +37,7 @@ public class App {
                 if (op == 1) {
                     System.out.println("Informe o valor:");
                     double valor = entrada.nextDouble();
-                    if (!cont.sacarEspecial(valor)) {
+                    if (!cont.sacar(valor, limiteEspecial)) {
                         System.out.println("Saldo insuficiente.");
                     }
                     
@@ -47,6 +47,8 @@ public class App {
                     cont.depositar(valor);
                 } else if (op == 3) {
                     cont.exibir();
+                } else if (op == 4) {
+                    break;
                 }
             } while (true);
 
@@ -58,7 +60,7 @@ public class App {
                 if (op == 1) {
                     System.out.println("Informe o valor:");
                     double valor = entrada.nextDouble();               
-                    if (!cont.sacarComum(valor)) {
+                    if (!cont.sacar(valor)) {
                         System.out.println("Saldo insuficiente.");
                     }
                 } else if (op == 2) {

@@ -49,7 +49,7 @@ public class ContaCorrente {
             System.out.println("Valor invalido");
         }
     }
-    public boolean sacarComum(double valor) {
+    public boolean sacar(double valor) {
         valor = valor*1.001;
         
         if (valor<saldo) {
@@ -59,9 +59,9 @@ public class ContaCorrente {
         return false;
     }
     
-    public boolean sacarEspecial(double valor) {
+    public boolean sacar(double valor, double limite) {
         valor = valor*1.002;
-        double limite = 0-limiteEspecial;
+        limite = 0-limiteEspecial;
        
         if (saldo-valor>=limite && valor>0) {
             saldo-=valor;
