@@ -1,0 +1,9 @@
+<html th:include="template :: modelo">
+    <div th:fragment="conteudo">
+        <form action="novoProf" method="post" th:object="${prof}">
+            <label class="form-label" for="nome">Nome</label>
+            <input class="form-control mb-3" type="text" th:field="*{nome}">
+            <input class="btn btn-primary" type="submit" value="Gravar">
+        </form>
+    </div>
+</html>
