@@ -12,6 +12,7 @@ import sistema.model.Contato;
 import sistema.model.Professor;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -64,8 +65,8 @@ public class HomeController {
                 "select * from professor",
                 (res, rowNum) -> {
                     Professor professor = new Professor(
-                    res.getInt("id"),
-                    res.getString("nome"));
+                            res.getInt("id"),
+                            res.getString("nome"));
                     return professor;
                 });
         model.addAttribute("professores", listaProfessor);
@@ -84,6 +85,41 @@ public class HomeController {
         db.update("insert into professor(nome) values (?)",
                 prof.getNome());
         return "home";
+    }
+
+    @GetMapping("excluir-professor")
+    public String excluirProf(@RequestParam(value = "id", required = true) Integer cod) {
+        db.update(
+                "delete from professor where id = ?",
+                cod);
+        return "redirect:/prof";
+    }
+
+    @GetMapping("editar-professor")
+    public String editarProf(@RequestParam(value = "id", required = true)Integer cod, Model model) {
+        Professor professor = db.queryForObject(
+            "Select * from professor where id=?",
+            (rs, rowNum) -> {
+                Professor c = new Professor();
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                
+                return c;
+            },
+            cod);
+            model.addAttribute("profs", professor);
+        return "formeditaprof";
+    }
+
+    
+    
+    @PostMapping("gravacontatoalt")
+    public String gravaAlt(Professor professor) {
+        db.update("update professor set nome=? where id=?",
+            professor.getNome(),
+            professor.getId()
+            );
+        return "redirect:/prof";
     }
 
 }
