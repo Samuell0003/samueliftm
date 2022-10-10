@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function getUser() {
+            usuario = sessionStorage.getItem("user");
+
+            if (!usuario) {
+                document.getElementById("txt").innerHTML = "Nao há nenhum usuário cadastrado";
+            } else {
+                usuario = JSON.parse(usuario);
+                document.getElementById("txt").innerHTML = `Usuario = ${usuario.nome} e Senha = ${usuario.senha}`;
+            }
+        }
+    </script>
+</head>
+<body onload="getUser()">
+    <h1>Usuário cadastrado:</h1>
+    <label id="txt" for=""></label>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function valida() {
+            user = document.getElementById("user");
+            pass = document.getElementById("pass");
+            if (user.value == "") {
+                alert("Usuario invalido");
+                nome.focus();
+            } else if (pass.value == "") {
+                alert("Senha invalida");
+                pass.focus();
+            } else {
+                usuario = {nome: `${user.value}`, senha: `${pass.value}`};
+                guardarDados(usuario);
+            }
+        }
+
+        function guardarDados(user) {
+
+            if (typeof (Storage) !== "undefined") {
+                sessionStorage.setItem("user", JSON.stringify(user));
+            } 
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <label for="user">User:</label>
+        <br>
+        <input type="text" id="user">
+        <br><br>
+        <label for="pass">Senha:</label>
+        <br>
+        <input type="password" id="pass">
+        <br><br>
+        <input type="button" value="Cadastrar" onclick="valida()">
+        <input type="reset" value="Limpar">
+    </form>
+    <br>
+    <a href="listaUser.html">mostrar usuario cadastrado</a>
+</body>
+
+</html>
