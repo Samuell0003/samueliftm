@@ -20,7 +20,7 @@ public class App {
         
         if (ValidaTriangulo.verifica(vet.get(0), vet.get(1), vet.get(2))) {
             Triangulo tg = new Triangulo(vet.get(0), vet.get(1), vet.get(2));
-            exibe(vet.get(0), vet.get(1), vet.get(2));
+            exibe(tg);
         } else {
             System.out.println("Não é triangulo");
         }
@@ -41,8 +41,8 @@ public class App {
         return vet;
     }
     
-    public static void exibe(int a, int b, int c) {
-        Triangulo tg = new Triangulo(a, b, c);
+    public static void exibe(Triangulo tg) {
+        
         System.out.println(tg.tipoTriangulo());
     }
 }
