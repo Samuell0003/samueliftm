@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body class=" ">
+    <header class="p-4 bg-danger " style="height: 100px; ">
+        <div class="row w-50 m-auto">
+            
+            <h1 class="col">Typo</h1>
+            <nav class="w-75 col">
+                <ul class="nav justify-content-end me-5 ">
+                    <li class="nav-item "><a class="nav-link text-dark" href="">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="">Archives</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container bg-secondary bg-opacity-50 w-50 m-auto" >
+        <div class="d-flex justify-content-center justify-content-md-center" >
+
+            <div class="p-2 col-lg-6">
+                <article class=" bg-success p-2 p-2 bg-opacity-50 mb-3" >
+                    <h2>Alguma coisa</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae numquam quia sint adipisci dignissimos, aliquam eligendi aliquid sunt repudiandae possimus soluta quis corrupti dolorum pariatur, natus dolorem sit obcaecati molestiae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab a quasi sapiente iste illum optio iusto, laborum harum. Laboriosam officiis maiores porro ab ea laudantium exercitationem excepturi possimus animi commodi!</p>
+                </article>
+                <article class=" bg-success p-2 p-2 bg-opacity-50 mb-3">
+                    <h2>Alguma coisa</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt natus illo cumque consectetur officia sed totam dolore eum! Earum dicta facere officia et accusamus, quia ea odio eveniet deserunt ducimus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quaerat saepe laboriosam rem veniam sapiente sint eveniet tenetur ratione quam, quasi fugiat dolorem. Repellendus sunt delectus sapiente voluptas? Provident, placeat!</p>                    
+                </article>
+                <article class=" bg-success p-2 p-2 bg-opacity-50 mb-3">
+                    <h2>Alguma coisa</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius omnis rerum, perspiciatis nam autem, repudiandae, vero minima assumenda ad tenetur non voluptatum fuga neque amet enim accusantium fugiat qui ab? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptate? Officia velit nobis voluptates voluptas. Alias exercitationem molestias repellat animi excepturi error corrupti recusandae eum deleniti pariatur. A, est et!</p>
+                </article>
+                <nav class="d-flex justify-content-between bg-dark p-2 text-dark bg-opacity-25">
+                   
+                     <div class="p-2"><a href="">Older posts</a></div>
+                     <div class="p-2"><a href="">Newer posts</a></div>
+                   
+                 </nav>
+            </div>
+            <div class=" col-lg-4">
+                <aside class="bg-danger p-2 bg-opacity-50 ">
+                    <section class="bg-white mb-3 p-3">
+                        <h3>Alguma coisa</h3>
+                        <p>lLorem ipsum dolor sit amet consectetur adipisicing elit. Et in at earum ullam voluptates. Delectus atque quam fuga maiores error inventore ipsa, veritatis sint temporibus, tempore dolorum id nisi voluptas.</p>
+                    </section>
+                    <section class="bg-white mb-3 p-3">
+                        <h3>Alguma coisa</h3>
+                        <a href="https://www.google.com.br/">https://www.google.com.br/</a>
+                        <a href="https://www.google.com.br/">https://www.google.com.br/</a>
+                        <a href="https://www.google.com.br/">https://www.google.com.br/</a>
+                        <a href="https://www.google.com.br/">https://www.google.com.br/</a>
+                        <a href="https://www.google.com.br/">https://www.google.com.br/</a>
+                        
+                    </section>
+                    <section class="bg-white mb-3 p-3">
+                        <h3>Alguma coisa</h3>
+                        <a href="https://www.google.com.br/">https://www.google.com.br/</a>
+                    </section>
+                    <section class="bg-white mb-3 p-3">
+                        <h3>Search</h3>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </section>
+                </aside>
+            </div>
+            
+            
+        </div>
+        
+    </main>
+    <footer class="bg-warning" style="height: 50px;">
+        <div class="w-50 m-auto d-flex justify-content-between">
+            <div class="p-2"><a href="">backend</a></div>
+            <div class="p-2"><a href="">frontend</a></div>
+           
+        </div>
+    </footer>
+</body>
+</html>
