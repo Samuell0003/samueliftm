@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tempTxt() {
+            setTimeout(modTxt, document.getElementById("valor").value);
+            
+        }
+        
+        function modTxt() {
+            document.getElementById("txt02").value = document.getElementById("txt01").value;
+            document.getElementById("txt01").value="";
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="txt01">
+        <input type="text" id="txt02" disabled>
+        <select name="" id="valor">
+            <option value="1000">1</option>
+            <option value="2000">2</option>
+            <option value="3000">3</option>
+            <option value="4000">4</option>
+            <option value="5000">5</option>
+            <option value="6000">6</option>
+            <option value="7000">7</option>
+            <option value="8000">8</option>
+            <option value="9000">9</option>
+            <option value="1000">10</option>
+        </select>
+        <input type="button" value="" onclick="tempTxt()">
+    </form>
+</body>
+</html>
