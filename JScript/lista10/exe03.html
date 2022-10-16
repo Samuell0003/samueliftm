@@ -5,12 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <script>
         nome = prompt("Informe seu nome:");
+        var size = 14;
+        var incremento;
+        function tempSize() {
+            incremento = setInterval(colocarNome,500);
+        }
+
+        function colocarNome() {
+
+            if (size==40) {
+                clearInterval(incremento);
+            }
+            document.getElementById("nome").innerHTML = nome;
+            document.getElementById("nome").style = `font-size: ${size}px;`;
+            size +=2;
+        }
         
     </script>
 </head>
-<body>
-    
+<body onload="tempSize()">
+    <p id="nome"></p>
 </body>
 </html>

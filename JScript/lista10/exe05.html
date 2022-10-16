@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = prompt("Informe a quantidade de nome");
+        var vetNome= [];
+        var cont = 0;
+        var nomes;
+        for (i=0; i<num; i++) {
+            vetNome[i] = prompt(`Informe o ${eval(i+1)} nome:`);
+        }
+
+        function play() {
+            nomes = setInterval(colocaNome, 1000);
+        }
+
+        function colocaNome() {
+            if (cont==vetNome.length-1) {
+                clearInterval(nomes);
+            }
+            novoElemento = document.createElement("p");
+            novoElemento.innerText = vetNome[cont];
+            document.body.appendChild(novoElemento);
+            cont++;
+        }
+    </script>
+</head>
+<body onload="play()">
+    
+</body>
+</html>
