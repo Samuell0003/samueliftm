@@ -1,5 +1,7 @@
 package com.example.condominio.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -15,5 +17,22 @@ public class RepositoryProprietario {
     public void gravar(Proprietario proprietario) {
         db.update("insert into proprietario(nome, telefone) values (?,?)",
         proprietario.getNome(), proprietario.getTelefone());
+    }
+
+    public List<Proprietario> selectFull() {
+        List<Proprietario> lista = db.query("select * from proprietario;",
+        (res, nowNum) -> {
+            Proprietario proprietario = new Proprietario(
+                res.getInt("id_proprietario"),
+                res.getString("nome"),
+                res.getString("telefone"));
+            return proprietario;
+        });
+
+        return lista;
+    }
+    
+    public void excluirDB(Integer cod) {
+        db.update("delete from proprietario where id_proprietario = ?", cod);
     }
 }
