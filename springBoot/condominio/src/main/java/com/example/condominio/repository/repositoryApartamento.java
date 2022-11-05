@@ -1,8 +1,15 @@
 package com.example.condominio.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class repositoryApartamento {
+public class RepositoryApartamento {
+    @Autowired
+    JdbcTemplate db;
     
+    public void gravar() {
+
+    }
 }
