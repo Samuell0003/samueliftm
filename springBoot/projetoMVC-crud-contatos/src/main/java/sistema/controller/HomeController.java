@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import sistema.model.Contato;
 import sistema.model.Professor;
+import sistema.model.Tipo;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,12 +20,12 @@ public class HomeController {
 
     @Autowired
     JdbcTemplate db;
-
+    Tipo tipo;
     @GetMapping("/home")
     public String home() {
         return "home";
     }
-
+ 
     @GetMapping("/contatos")
     public String contatos(Model model) {
         List<Contato> listaDeContatos = db.query(
@@ -34,7 +35,8 @@ public class HomeController {
                             res.getInt("id"),
                             res.getString("nome"),
                             res.getString("telefone"),
-                            res.getString("endereco"));
+                            res.getString("endereco"),
+                            tipo = new Tipo(res.getInt("idTipo"), res.getString("descricao")));
                     return contato;
                 });
         model.addAttribute("contatos", listaDeContatos);

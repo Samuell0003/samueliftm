@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Contato {
+public class Tipo {
     private int id;
-    private String nome, telefone, endereco;
-    private Tipo tipo;
+    private String descricao;
 }
