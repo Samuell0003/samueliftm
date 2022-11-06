@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="pt-br" th:include="conteudo/main::main">
 <body>
-    <form action="/novoapto" method="post" th:object="${apartamento}">
-        <label for="">Numero de portas:</label>
-        <input type="number" th:field="*{numPortas}">
-        <label for="">Quantidade quartos:</label>
-        <input type="number" th:field="*{qtdQuartos}">
-        <label for="">Tipo:</label>
-        <select name="" id="" th:field="*{tipo}">
-            <option value="Proprietário">Proprietário</option>
-            <option value="Inquilino">Inquilino</option>
-            <option value="Vazio">Vazio</option>
-        </select>
-        <label for="">Proprietário</label>
-        <select th:field="*{proprietario.id_proprietario}">
-            <option 
-                th:each="prop: ${proprietario}"
-                th:value="${prop.id_proprietario}"
-                th:text="${prop.nome}"
-            ></option>
-        </select>
-        <input type="submit">
-    </form>
+    <main th:fragment="conteudo">
+        <form action="/novoapto" method="post" th:object="${apartamento}">
+            <label for="">Numero de portas:</label>
+            <input type="number" th:field="*{numPortas}">
+            <label for="">Quantidade quartos:</label>
+            <input type="number" th:field="*{qtdQuartos}">
+            <label for="">Tipo:</label>
+            <select name="" id="" th:field="*{tipo}">
+                <option value="Proprietário">Proprietário</option>
+                <option value="Inquilino">Inquilino</option>
+                <option value="Vazio">Vazio</option>
+            </select>
+            <label for="">Proprietário</label>
+            <select th:field="*{proprietario.id_proprietario}">
+                <option 
+                    th:each="prop: ${proprietario}"
+                    th:value="${prop.id_proprietario}"
+                    th:text="${prop.nome}"
+                ></option>
+            </select>
+            <input type="submit">
+        </form>
+    </main>
 </body>
 </html>

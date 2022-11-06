@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="pt-br" th:include="conteudo/main::main">
 <body>
-    <form action="/novoproprietario" method="post" th:object="${proprietario}">
-        <label for="">Nome</label>
-        <input type="text" th:field="*{nome}">
-        <label for="">Telefone</label>
-        <input type="tel" th:field="*{telefone}">
-        <input type="submit" value="Cadastrar">
-        <input type="reset">
-    </form>
+    <main th:fragment="conteudo">
+        <form action="/novoproprietario" method="post" th:object="${proprietario}">
+            <label for="">Nome</label>
+            <input type="text" th:field="*{nome}">
+            <label for="">Telefone</label>
+            <input type="tel" th:field="*{telefone}">
+            <input type="submit" value="Cadastrar">
+            <input type="reset">
+        </form>
+    </main>
 </body>
 </html>

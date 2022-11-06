@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="pt-br" th:include="conteudo/main::main">
 <body>
-    <table>
-        <thead>
-            <th scope="col">#</th>
-            <th scope="col">Numero de portas:</th>
-            <th scope="col">Quantidade de quartos:</th>
-            <th scope="col">Tipo:</th>
-            <th scope="col">Proprietario:</th>
-        </thead>
-        <tbody>
-            <tr th:each="apto : ${apartamento}">
-                <th scope="row" th:text="${apto.id_ap}"></th>
-                <td th:text="${apto.numPortas}"></td>
-                <td th:text="${apto.qtdQuartos}"></td>
-                <td th:text="${apto.tipo}"></td>
-                <td th:text="${apto.proprietario.nome}"></td>
-                <td>
-                    <a th:href="@{/excluirAP(id=${apto.id_ap})}">Excluir</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <main th:fragment="conteudo">
+        <table>
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Numero de portas:</th>
+                <th scope="col">Quantidade de quartos:</th>
+                <th scope="col">Tipo:</th>
+                <th scope="col">Proprietario:</th>
+            </thead>
+            <tbody>
+                <tr th:each="apto : ${apartamento}">
+                    <th scope="row" th:text="${apto.id_ap}"></th>
+                    <td th:text="${apto.numPortas}"></td>
+                    <td th:text="${apto.qtdQuartos}"></td>
+                    <td th:text="${apto.tipo}"></td>
+                    <td th:text="${apto.proprietario.nome}"></td>
+                    <td>
+                        <a th:href="@{/excluirAP(id=${apto.id_ap})}">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>

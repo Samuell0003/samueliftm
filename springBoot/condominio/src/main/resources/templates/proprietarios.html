@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="pt-br" th:include="conteudo/main::main">
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome:</th>
-                <th scope="col">Telefone:</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="prop : ${proprietario}">
-                <th scope="row" th:text="${prop.id_proprietario}"></th>
-                <td th:text="${prop.nome}"></td>
-                <td th:text="${prop.telefone}"></td>
-                <td>
-                    <a th:href="@{/excluirProprietario(id=${prop.id_proprietario})}">Excluir</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <main th:fragment="conteudo">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome:</th>
+                    <th scope="col">Telefone:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="prop : ${proprietario}">
+                    <th scope="row" th:text="${prop.id_proprietario}"></th>
+                    <td th:text="${prop.nome}"></td>
+                    <td th:text="${prop.telefone}"></td>
+                    <td>
+                        <a th:href="@{/excluirProprietario(id=${prop.id_proprietario})}">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>

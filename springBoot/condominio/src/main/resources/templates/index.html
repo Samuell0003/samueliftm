@@ -1,22 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="pt-br" th:include="conteudo/main::main">
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="/novoproprietario">Novo Prop</a></li>
-                <li><a href="/proprietario">Prop</a></li>
-                <li><a href="/novoapto">Novo apto</a></li>
-                <li><a href="/apto">apto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <main th:fragment="conteudo"></main>
 </body>
 </html>
