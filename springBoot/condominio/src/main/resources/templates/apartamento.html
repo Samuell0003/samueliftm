@@ -7,6 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <table>
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Numero de portas:</th>
+            <th scope="col">Quantidade de quartos:</th>
+            <th scope="col">Tipo:</th>
+            <th scope="col">Proprietario:</th>
+        </thead>
+        <tbody>
+            <tr th:each="apto : ${apartamento}">
+                <th scope="row" th:text="${apto.id_ap}"></th>
+                <td th:text="${apto.numPortas}"></td>
+                <td th:text="${apto.qtdQuartos}"></td>
+                <td th:text="${apto.tipo}"></td>
+                <td th:text="${apto.proprietario.nome}"></td>
+                <td>
+                    <a th:href="@{/excluirAP(id=${apto.id_ap})}">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

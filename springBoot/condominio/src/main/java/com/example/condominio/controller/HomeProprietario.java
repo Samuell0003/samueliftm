@@ -37,10 +37,9 @@ public class HomeProprietario {
         return "index";
     }
 
-    @GetMapping("excluir")
+    @GetMapping("excluirProprietario")
     public String excluir(@RequestParam(value = "id", required = true) Integer cod) {
         repository.excluirDB(cod);
-        System.out.println("Num"+cod);
         return "redirect:/proprietario";
     }
 }

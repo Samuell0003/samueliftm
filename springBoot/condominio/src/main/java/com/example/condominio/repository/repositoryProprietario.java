@@ -33,6 +33,11 @@ public class RepositoryProprietario {
     }
     
     public void excluirDB(Integer cod) {
-        db.update("delete from proprietario where id_proprietario = ?", cod);
+        try {
+            db.update("delete from proprietario where id_proprietario = ? ", cod);
+        } catch (Exception e) {
+            db.update("delete from apartamento where id_proprietario = ? ", cod);
+            db.update("delete from proprietario where id_proprietario = ? ", cod);
+        }
     }
 }
