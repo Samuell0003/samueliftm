@@ -26,7 +26,7 @@ public class HomeApartamento {
     public String apto(Model model) {
         List<Apartamento> lista = repositoryApto.aptos();
         model.addAttribute("apartamento", lista);
-        return "apartamento";
+        return "paginas/apartamento";
     }
 
     @GetMapping("/novoapto")
@@ -36,13 +36,13 @@ public class HomeApartamento {
         List<Proprietario> lista = repositoryPro.selectFull();
         model.addAttribute("proprietario", lista);
     
-        return "novoapartamento";
+        return "paginas/novoapartamento";
     }
 
     @PostMapping("/novoapto")
     public String cadastrarApto(Apartamento apto) {
         repositoryApto.gravarApto(apto);
-        return "index";
+        return "paginas/index";
     }
 
     @GetMapping("excluirAP")

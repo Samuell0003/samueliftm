@@ -22,19 +22,19 @@ public class HomeProprietario {
     public String prop(Model model) {
         List<Proprietario> proprietario = repository.selectFull();
         model.addAttribute("proprietario", proprietario);
-        return "proprietarios";
+        return "paginas/proprietarios";
     }
 
     @GetMapping("novoproprietario")
     public String form(Model model) {
         model.addAttribute("proprietario", new Proprietario());
-        return "novoproprietario";
+        return "paginas/novoproprietario";
     }
 
     @PostMapping("novoproprietario")
     public String gravarProp(Proprietario proprietario) {
         repository.gravar(proprietario);
-        return "index";
+        return "paginas/index";
     }
 
     @GetMapping("excluirProprietario")
