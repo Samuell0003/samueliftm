@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verificar() {
+            var texto = document.getElementById("text");
+
+            //var padrao = /^\d{4,5}-\d{4}$/;
+
+            
+
+            //Padrao: deve começar com no mínino 2 digitos
+            //var padrao = /^\d{2}/;
+
+            //Padrao: deve terminar com no mínino 2 digitos
+            //var padrao = /\d{2}$/;
+
+            //Padrao: deve ter exatamente 2 digitos
+            //var padrao = /^\d{2}$/;
+
+            // Padrao para CEP;
+            //var padrao = /^\d{2}\.\d{3}-\d{3}$/;
+
+            //Padrao para telefone: (38) 99846-4710 || (38)9846-4710 || (038) X9846-4710 
+            //var padrao = /^\(\d{2,3}\)\d{4,5}-\d{4}$/;
+
+            //Padrao para validar numero de matricula. Ex: TSPI-1234.
+            //var padrao = /^TSPI-\d{4,5}$/;
+
+            //Padrao para validar numero de matricula. Ex: TSPI-1234, onde TSPI poderia ser LCO ou MKT, seguido de um traço + 4 a 5 numeros
+            var padrao = /^(TSPI|LCO|MKT)-\d{4,5}$/;
+
+            //Padrao para validar espaço. Ex: IFTM UBERLANDIA CENTRO || IFTM     UBERLANDIA     CENTRO
+            //var padrao = /^IFTM\s{1,5}UBERLANDIA\s{1,5}CENTRO\s{1,5}$/;
+
+            //Padrao para verificar todas as palavras compostas por um ou mais das seguintes letras: AEIOUGHK
+            //var padrao = /^[AEIOUGHK]{2,}$/;
+
+            var padrao = /^((I|i)(f|F)(T|t)(m|M))-\d{4,6}-(TSPI|LCO|MKT):\d[A-Z]$/;
+
+
+            if (padrao.test(texto.value)) {
+                alert("tem num");
+            } else  {
+                alert("nao tem num");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <label for="">Informação:</label>
+        <input type="text" name="" id="text">
+        <input type="button" value="Verificar" onclick="verificar()">
+    </form>
+</body>
+</html>
