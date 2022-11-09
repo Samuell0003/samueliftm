@@ -1,5 +1,7 @@
 package com.example.condominio.repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +21,16 @@ public class RepositoryProprietario {
         proprietario.getNome(), proprietario.getTelefone());
     }
 
-    public List<Proprietario> selectFull() {
-        List<Proprietario> lista = db.query("select * from proprietario;",
-        (res, nowNum) -> {
+    public Proprietario a(ResultSet res, int nowNum) throws SQLException {
             Proprietario proprietario = new Proprietario(
-                res.getInt("id_proprietario"),
-                res.getString("nome"),
-                res.getString("telefone"));
-            return proprietario;
-        });
+            res.getInt("id_proprietario"),
+            res.getString("nome"),
+            res.getString("telefone"));
+        return proprietario;
+    }
 
-        return lista;
+    public List<Proprietario> selectFull() {
+        return db.query("select * from proprietario;", this::a);
     }
     
     public void excluirDB(Integer cod) {
