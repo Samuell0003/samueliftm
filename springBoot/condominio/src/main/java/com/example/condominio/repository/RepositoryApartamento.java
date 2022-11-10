@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.condominio.model.Apartamento;
-import com.example.condominio.model.Proprietario;
 
 @Repository
 public class RepositoryApartamento {
@@ -15,20 +14,22 @@ public class RepositoryApartamento {
     @Autowired
     JdbcTemplate db;
     
+    RepositoryProprietario proprietario;
+
     public void gravarApto(Apartamento apto) {
         db.update("insert into apartamento (numPortas, qtdQuartos, tipo, id_proprietario) values (?, ?, ?, ?);",
         apto.getNumPortas(), apto.getQtdQuartos(), apto.getTipo(), apto.getProprietario().getId_proprietario());
     }
 
     public List<Apartamento> aptos() {
-        List<Apartamento> lista = db.query("select a.id_ap as id, a.numPortas as numPortas, a.qtdQuartos as qtdQuartos, a.tipo as tipo, p.id_proprietario as id_proprietario, p.nome as nome, p.telefone as telefone from apartamento a join proprietario p on a.id_proprietario=p.id_proprietario;", 
+        List<Apartamento> lista = db.query("select * from apartamento;", 
         (res, nowNum) -> {
             Apartamento ap = new Apartamento(
-                res.getInt("id"),
+                res.getInt("id_ap"),
                 res.getInt("numPortas"),
                 res.getInt("qtdQuartos"),
                 res.getString("tipo"),
-                new Proprietario(res.getInt("id_proprietario"), res.getString("nome"), res.getString("telefone")));
+                proprietario.selectId(res.getInt("id_proprietario")));
             return ap;
         });
         return lista;
