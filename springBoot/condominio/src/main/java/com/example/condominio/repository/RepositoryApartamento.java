@@ -13,7 +13,7 @@ public class RepositoryApartamento {
 
     @Autowired
     JdbcTemplate db;
-    
+    @Autowired
     RepositoryProprietario proprietario;
 
     public void gravarApto(Apartamento apto) {
