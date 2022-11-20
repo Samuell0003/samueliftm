@@ -1,12 +1,12 @@
 
 
-function valida() {
+function validaLogin() {
     var user = document.getElementById("user");
     var password = document.getElementById("senha");
     if (!user.value) {
         //alert("Login");
         alertWifi("Usuário em branco", false, 0, "img/toupeira.gif", 30);
-        usuario.focus();
+        user.focus();
     } else if (!password.value) {
         //alert("password");
         alertWifi("Senha em branco", false, 0, "img/toupeira.gif", 30);
