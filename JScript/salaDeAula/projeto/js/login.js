@@ -17,8 +17,8 @@ function validaLogin() {
 }
 
 function readJSON(user, password) {
-    file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
-    //file = "json/users.json";
+    //file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
+    file = "json/users.json";
     fetch(file)
         .then(response => response.json())
         .then(content => checkUser(content,user, password))
