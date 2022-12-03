@@ -35,7 +35,7 @@ function checkUser(content,user, password) {
     }
 
     if (achou) {
-        alertWifi("Usuario valido", false, 0, "img/toupeira.gif", 30);
+        window.open("home.html","_self");
     } else {
         alertWifi("Usuario invalido", false, 0, "img/toupeira.gif", 30);
 
