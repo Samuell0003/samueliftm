@@ -79,7 +79,7 @@ public class AppAvaInter2 {
             String unidade = entrada.next();
             try {
                 if (unidade.length() != 2) {
-                    throw new Exception(" 2 caracteras");
+                    throw new Exception("Erro");
                 }
                 listRemedio.add(new Remedio(nome, laboratorio, unidade));
                 System.out.println("1 - Parar cadastro");
@@ -88,7 +88,7 @@ public class AppAvaInter2 {
                 }
 
             } catch (Exception ex) {
-                System.err.println("Erro");
+                System.err.println(ex.getMessage());
             }
         } while (true);
     }

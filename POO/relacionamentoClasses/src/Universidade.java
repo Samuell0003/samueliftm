@@ -4,17 +4,19 @@ import java.util.ArrayList;
 public class Universidade {
     private String nome;
     private ArrayList<Departamento> departamento;
+
     public Universidade() {
 
+    }
+
+    public Universidade(String nome) {
+        this.nome = nome;
+        this.departamento = new ArrayList<>();
     }
 
     public Universidade(String nome, ArrayList<Departamento> departamento) {
         this.nome = nome;
         this.departamento = departamento;
-    }
-
-    public Universidade(String nome) {
-        this.nome = nome;
     }
 
     public String getNome() {
@@ -30,6 +32,6 @@ public class Universidade {
     }
 
     public ArrayList<Departamento> getDepartamento() {
-            return departamento;
+        return departamento;
     }
 }
