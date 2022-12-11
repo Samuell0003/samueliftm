@@ -7,14 +7,17 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    border: 2px solid black;
     flex-wrap: wrap;
+    box-shadow: 0px 0px 15px 5px black;
+
 }
 
 .boxTabuleiro {
     width: 33.33%;
     height: 200px;
     border: 1px solid black;
+    
+    background-color: white;
 }
 
 .boxTabuleiro:hover {
@@ -33,4 +36,95 @@
 
 .imgCircle {
     background-image: url("../img/0.png");
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: chocolate;
+    flex-direction: column;
+    color: rgb(114, 109, 73);
+}
+.login {
+    width: 400px;
+    height: 450px;
+    padding: 30px;
+    background-color: rgb(255, 230, 0);
+    background-color: white;
+    box-shadow: 0px 0px 15px 5px black;
+    text-align: center;
+}
+h1 {
+    font-size: 32px;    
+}
+input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    margin: 10px 0;
+    padding-left: 10px;
+}
+input[type=submit] {
+    border: 1px solid rgb(114, 109, 73);
+    border-radius: 3px;
+    background-color: rgb(114, 109, 73);
+    color: white;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+form {
+    width: 100%;
+    margin: 50px 0;
+}
+
+.message {
+   
+    padding: 19px 60px;
+    position: fixed;
+    margin: auto;
+    top: 20px;
+    background-color: white;
+    border-radius: 3px;
+    color: darkorange;
+    animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+
+
+@keyframes slidein {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.message::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    background-color: black;
+    animation: time 3s forwards;
+}
+
+@keyframes time {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+#jogador {
+    position: absolute;
 }

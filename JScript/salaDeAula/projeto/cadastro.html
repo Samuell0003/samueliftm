@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/jAlertWifi.js"></script>
     <script src="js/cadastro.js"></script>
-    <link rel="stylesheet" href="css/jAlertWifi.css">
-    <link rel="stylesheet" href="css/login.css">
+    <script src="js/alert.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <main>
-        <section class="login">
-            <div>
-                <img src="img/toupeira.gif" alt="">
+        <section class="flex">
+            <div class="alert"></div>
+            <div class="login flex">
                
                 <form action="php/file.php" method="post" id="cadastr">
-                    <input type="text" name="user" id="user" placeholder="Login">
-                    <input type="password" name="pwd" id="senha" placeholder="Senha">
-                    <input type="password" id="confirmSenha" placeholder="Confirme a senha">
-                    <input type="button" value="Enviar" onclick="validaCadastro()">
+                    <input type="text" name="user" id="user" placeholder="Login" required>
+                    <input type="password" name="pwd" id="senha" placeholder="Senha" required>
+                    <input type="password" id="confirmSenha" placeholder="Confirme a senha" required>
+                    <input type="button" value="Cadastrar" onclick="validaCadastro()">
                 </form>
                 <p>Já é cadastrado? <a href="index.html">Clique aqui</a></p>
             </div>

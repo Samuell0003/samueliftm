@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/jAlertWifi.js"></script>
     <script src="js/login.js"></script>
-    <link rel="stylesheet" href="css/jAlertWifi.css">
-    <link rel="stylesheet" href="css/login.css">
+    <script src="js/alert.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="alert"></div>
     <main>
-        <section class="login">
-            <div>
-                <img src="img/toupeira.gif" alt="">
-                <h1>Mole Game</h1>
+        <section class="flex">
+            <div class="login flex">
+                <img src="" alt="">
+                <h1>Bem vindo</h1>
                 <form action="">
-                    <input type="text" id="user" placeholder="Login">
-                    <input type="password" id="senha" placeholder="Senha">
+                    <input type="text" class="alert" id="user" placeholder="Login" required>
+                    <input type="password" id="senha" placeholder="Senha" required>
                     <input type="button" value="Entrar" onclick="validaLogin()" >
                 </form>
                 <p>Não é cadastrado? <a href="cadastro.html">Cadastre-se aqui</a></p>

@@ -42,6 +42,7 @@ function verifica() {
             console.log(verif);
             if (verif==="111" || verif==="000") {
                 alert();
+                break;
             }
         }
         verif="";
@@ -54,6 +55,7 @@ function verifica() {
             console.log(verif);
             if (verif==="111" || verif==="000") {
                 alert();
+                break;
             }
         }
         verif="";
@@ -64,6 +66,7 @@ function verifica() {
         console.log(verif);
         if (verif==="111" || verif==="000") {
             alert();
+            break;
         }
     }
     verif="";
@@ -73,8 +76,25 @@ function verifica() {
         console.log(verif);
         if (verif==="111" || verif==="000") {
             alert();
+            break;
         }
     }
     verif="";
     
 }
+
+function verificaUsers() {
+    var user1 = document.getElementById("user1").value;
+    var user2 = document.getElementById("user2").value;
+
+    if(!user1) user1 = "Jogador 1";
+    if(!user2) user2 = "Jogador 2";
+
+    localStorage.setItem("users",JSON.stringify(
+        {"user1":user1, "user2":user2}
+    ));
+
+    window.open("home.html","_self");
+}
+
+

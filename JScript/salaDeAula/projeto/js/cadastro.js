@@ -4,16 +4,16 @@ function validaCadastro() {
     var confirmSenha = document.getElementById("confirmSenha");
 
     if (!user.value) {
-        alertWifi("Usuário em branco", false, 0, "img/toupeira.gif", 30);
+        ativar("Usuário em branco");
         user.focus();
     } else if (!senha.value) {
-        alertWifi("Senha em branco", false, 0, "img/toupeira.gif", 30);
+        ativar("Senha em branco");
         senha.focus();
     } else if (!confirmSenha.value) {
-        alertWifi("Confirme a senha", false, 0, "img/toupeira.gif", 30);
+        ativar("Confirme a senha");
         confirmSenha.focus();
     } else if (senha.value!=confirmSenha.value) {
-        alertWifi("Senhas diferentes", false, 0, "img/toupeira.gif", 30);
+        ativar("Senhas diferentes");
         confirmSenha.focus();
     } else {
         readJSON(user.value, senha.value);
@@ -21,7 +21,6 @@ function validaCadastro() {
 }
 
 function readJSON(user, password) {
-    //file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
     file = "json/users.json";
     fetch(file)
         .then(response => response.json())
@@ -39,7 +38,7 @@ function checkUser(content,user, password) {
     }
 
     if (achou) {
-        alertWifi("Usuario já existe", false, 0, "img/toupeira.gif", 30);
+        ativar("Usuário já existente!");
     } else {
         document.getElementById("cadastr").submit();
     }

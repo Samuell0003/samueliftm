@@ -4,12 +4,10 @@ function validaLogin() {
     var user = document.getElementById("user");
     var password = document.getElementById("senha");
     if (!user.value) {
-        //alert("Login");
-        alertWifi("Usuário em branco", false, 0, "img/toupeira.gif", 30);
+        ativar("Usuário em branco!");
         user.focus();
     } else if (!password.value) {
-        //alert("password");
-        alertWifi("Senha em branco", false, 0, "img/toupeira.gif", 30);
+        ativar("Senha em branco!");
         password.focus();
     } else {
         readJSON(user.value, password.value);
@@ -17,27 +15,27 @@ function validaLogin() {
 }
 
 function readJSON(user, password) {
-    //file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
     file = "json/users.json";
     fetch(file)
         .then(response => response.json())
-        .then(content => checkUser(content,user, password))
+        .then(content => checkUser(content, user, password))
         .catch(err => console.log("erro na leitura do JSON"));
 }
 
-function checkUser(content,user, password) {
+function checkUser(content, user, password) {
     var achou = false;
-    for(i=0; i<content.usuarios.length; i++) {
-        if (content.usuarios[i].user==user && content.usuarios[i].pwd==password) {
+    for (i = 0; i < content.usuarios.length; i++) {
+        if (content.usuarios[i].user == user && content.usuarios[i].pwd == password) {
             achou = true;
             break;
         }
     }
 
     if (achou) {
-        window.open("home.html","_self");
+        window.open("users.html", "_self");
     } else {
-        alertWifi("Usuario invalido", false, 0, "img/toupeira.gif", 30);
+        console.log("1");
+        ativar("Usuário ou senha incorreto!");
 
     }
 }
