@@ -11,12 +11,12 @@
 </head>
 <body>
     <main>
+        <div class="alert"></div>
         <section class="flex">
-            <div class="alert"></div>
             <div class="login flex">
                
                 <form action="php/file.php" method="post" id="cadastr">
-                    <input type="text" name="user" id="user" placeholder="Login" required>
+                    <input type="text" name="user" id="user" placeholder="Usuário" required>
                     <input type="password" name="pwd" id="senha" placeholder="Senha" required>
                     <input type="password" id="confirmSenha" placeholder="Confirme a senha" required>
                     <input type="button" value="Cadastrar" onclick="validaCadastro()">

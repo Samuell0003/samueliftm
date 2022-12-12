@@ -27,6 +27,7 @@ function checkUser(content, user, password) {
     for (i = 0; i < content.usuarios.length; i++) {
         if (content.usuarios[i].user == user && content.usuarios[i].pwd == password) {
             achou = true;
+            localStorage.setItem("posUser", i);
             break;
         }
     }

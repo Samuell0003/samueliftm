@@ -1,8 +1,9 @@
 var imagens = ['imgCircle','imgXis' ];
+var sam = JSON.parse(localStorage.getItem("users"));
+var jogadorAtual = [sam.user1,sam.user2];
 var imgAtual = 0;
 var matriz;
 var verif="";
-
 
 function criarMatriz() {
     matriz = new Array(3);
@@ -10,8 +11,13 @@ function criarMatriz() {
         matriz[i] = new Array(3);
     }
 }
-
+function userLogin() {
+    if (!localStorage.getItem("posUser")) window.open("index.html", "_self");
+}
 function criarTabuleiro() {
+
+    if (!localStorage.getItem("users")) window.open("users.html", "_self");
+
     criarMatriz();
     for (let i=0; i<3; i++) {
         for (let j=0; j<3; j++) {
@@ -23,6 +29,7 @@ function criarTabuleiro() {
             matriz[i][j]="";
         }
     }
+    jogador(jogadorAtual[imgAtual]);
 }
 
 function inserirImg(evento) {
@@ -31,8 +38,8 @@ function inserirImg(evento) {
     matriz[parseInt(vetIndice[0])][parseInt(vetIndice[1])] = imgAtual;
 
     (imgAtual >=1)?imgAtual=0:imgAtual++;
-
     verifica();
+    jogador(jogadorAtual[imgAtual]);
 }
 
 function verifica() {
