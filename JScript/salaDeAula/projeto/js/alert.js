@@ -19,3 +19,11 @@ function jogador(txt) {
     divMessage.appendChild(message);
 
 }
+
+function finish() {
+    //document.getElementById("tabuleiro").style.display="none";
+    btnR = document.getElementById("btnR");
+    btnL = document.getElementById("btnL");
+    btnR.classList.add("btn","btnR");
+    btnL.classList.add("btn", "btnL");
+}
