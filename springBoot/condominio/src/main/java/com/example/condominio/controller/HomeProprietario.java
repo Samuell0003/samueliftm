@@ -2,9 +2,12 @@ package com.example.condominio.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +35,10 @@ public class HomeProprietario {
     }
 
     @PostMapping("novoproprietario")
-    public String gravarProp(Proprietario proprietario) {
+    public String gravarProp(@Valid Proprietario proprietario, BindingResult valida) {
+        if (valida.hasErrors()) {
+            return "paginas/novoproprietario";
+        }
         repository.gravar(proprietario);
         return "paginas/index";
     }

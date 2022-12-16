@@ -3,10 +3,16 @@
 <body>
     <main th:fragment="conteudo">
         <form action="/novoproprietario" method="post" th:object="${proprietario}">
-            <label for="">Nome</label>
-            <input type="text" th:field="*{nome}">
-            <label for="">Telefone</label>
-            <input type="tel" th:field="*{telefone}">
+            <div>
+                <label for="">Nome</label>
+                <input type="text" th:field="*{nome}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+            </div>
+            <div>
+                <label for="">Telefone</label>
+                <input type="tel" th:field="*{telefone}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></div>
+            </div>
             <input type="submit" value="Cadastrar">
             <input type="reset">
         </form>
